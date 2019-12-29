@@ -1,0 +1,37 @@
+# cloud-config
+# See: https://rancher.com/docs/os/v1.x/en/
+ssh_authorized_keys:
+# - ssh-rsa AAA...ZZZ example1@rancher
+# - ssh-rsa BBB...ZZZ example2@rancher
+  - <SSH public key>
+rancher:
+# SSHD Port and IP
+#  ssh:
+#    port: 10022
+#    listen_address: 172.22.100.100
+# Setting the Hostname
+#  hostname: myhost
+# Switching Consoles [default, alpine, centos, debian, fedora, ubuntu]
+  console: ubuntu
+# Using a pull through registry mirror
+# http://f1361db2.m.daocloud.io for Chinese developers
+  bootstrap_docker:
+    registry_mirror: "http://f1361db2.m.daocloud.io"
+  docker:
+    registry_mirror: "http://f1361db2.m.daocloud.io"
+  system_docker:
+    registry_mirror: "http://f1361db2.m.daocloud.io"
+# Configuring Network Interfaces
+  network:
+#   interfaces:
+#     eth0:
+#       address: 172.168.1.100/24
+#       gateway: 172.68.1.1
+#       mtu: 1500
+#       dhcp: false
+# Confiugring DNS
+# Aliyun DNS for Chinese developers
+    dns:
+      nameservers:
+        - 223.5.5.5
+        - 223.6.6.6
